@@ -7,5 +7,5 @@ import program.MalaDireta;
 
 public interface InterfaceEnviadorEmail {
 
-	public void enviar(MalaDireta malaDireta, List<Destino> destinos);
+	public String enviar(MalaDireta malaDireta, List<Destino> destinos);
 }

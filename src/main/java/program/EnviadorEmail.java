@@ -16,10 +16,9 @@ import interfaces.InterfaceEnviadorEmail;
  */
 public class EnviadorEmail implements InterfaceEnviadorEmail {
 
-	@Override
-	public void enviar(MalaDireta malaDireta, List<Destino> destinos) {
-		System.out.println("Mala direta: " + malaDireta.getMensagem());
-		System.out.println("Destino: " + destinos.get(0).getNome());
-		System.out.println("Destino: " + destinos.get(0).getEmail());
+	public String enviar(MalaDireta malaDireta, List<Destino> destinos) {
+		// TODO envio por e-mail
+		System.out.println("Enviado por email");
+		return "Enviado por email";
 	}
 }

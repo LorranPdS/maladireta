@@ -2,6 +2,8 @@ package program;
 
 import java.util.List;
 
+import interfaces.InterfaceEnviadorEmail;
+
 /**
  * 
  * Classe responsavel por conter a mala direta com mensagem a ser enviada e o
@@ -36,13 +38,21 @@ public class MalaDireta {
 	 * 
 	 * @param destinos
 	 */
-	public void setEnviarMensagem(List<Destino> destinos, int index) {
-		EnviadorEmail enviadorEmail = new EnviadorEmail();
+	public String setEnviarMensagem(List<Destino> destinos, int index) throws Exception {
+		InterfaceEnviadorEmail enviadorEmail = null;
+		
+		if(mensagem.startsWith("SMS")) {
+			enviadorEmail = new EnviadorSMS();
+		} else {
+			enviadorEmail = new EnviadorEmail();			
+		}
+		
 		if(destinos.get(index).getNome().equals(null)) {
 			throw new NullPointerException("Nome não pode ser nulo");
 		}
-		enviadorEmail.enviar(this, destinos);
+		String result = enviadorEmail.enviar(this, destinos);
 
+		return result;
 	}
 
 	@Override

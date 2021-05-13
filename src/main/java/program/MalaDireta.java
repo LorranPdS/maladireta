@@ -1,4 +1,4 @@
-package maladireta;
+package program;
 
 import java.util.List;
 
@@ -36,8 +36,11 @@ public class MalaDireta {
 	 * 
 	 * @param destinos
 	 */
-	public void setEnviarMensagem(List<Destino> destinos) {
+	public void setEnviarMensagem(List<Destino> destinos, int index) {
 		EnviadorEmail enviadorEmail = new EnviadorEmail();
+		if(destinos.get(index).getNome().equals(null)) {
+			throw new NullPointerException("Nome não pode ser nulo");
+		}
 		enviadorEmail.enviar(this, destinos);
 
 	}

@@ -1,4 +1,4 @@
-package maladireta;
+package program;
 
 /**
  * Classe informando qual será o nome e o email do destinatário a receber a mensagem
